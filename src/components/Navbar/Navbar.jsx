@@ -3,16 +3,22 @@ import './Navbar.css'
 
 
 const Navbar = () => {
+    const user = null
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to=''></Link></li>
-        <li><Link to=''></Link></li>
-        <li><Link to=''></Link></li>
-        <li><Link to=''></Link></li>
+        <li><Link to='/instructors'>Instructors</Link></li>
+        <li><Link to='/classes'>Classes</Link></li>
+        {
+            user ? <><li><Link to='/dashboard'>Dashboard</Link></li></>
+                :
+                // to do  user pic 
+                <> <li><Link to='/login'>Log in</Link></li>
+                    <li><img src="" alt="" /></li></>
+        }
     </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar  bg-neutral sm:text-black lg:text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,16 +28,14 @@ const Navbar = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl text-5xl web-name"><i>New Bginings</i></a>
+                    <a className="btn btn-ghost normal-case  text-4xl web-name"><i>New Bginings</i></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navLink}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
-                </div>
+
             </div>
         </div>
     );
