@@ -44,17 +44,15 @@ const Login = () => {
                                     </label>
                                     <input type="email"  {...register("email", { required: true })} className="input input-bordered" />
                                 </div>
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type="password" {...register("password", { required: true })} className="input input-bordered" />
                                     {errors.password && <span>This field is required</span>}
-                                    <label className="label">
-
-                                        <Link to="/signup" className="label-text-alt link link-hover">New here? Sign Up</Link>
-                                    </label>
                                 </div>
+
                                 <div className="form-control mt-6">
                                     <input className="btn btn-primary" value="Log in" type="submit" />
                                 </div>
@@ -64,6 +62,10 @@ const Login = () => {
                                     onClick={handleGoogleSignin}
                                     className="btn   btn-outline  btn-error"><BsGoogle></BsGoogle></button>
                             </div>
+                            <label className="label">
+
+                                <Link to="/signup" className="label-text-alt link link-hover">New here? Sign Up</Link>
+                            </label>
                         </div>
 
                     </div>
