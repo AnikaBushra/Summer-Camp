@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
 import './Navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/Authporviders";
 
 
 const Navbar = () => {
-    const user = null
+    const { user } = useContext(AuthContext)
+
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {
-            user ? <><li><Link to='/dashboard'>Dashboard</Link></li></>
+            user ? <><li><Link to='/dashboard'>Dashboard</Link></li>
+                <li><img className="h-20" src={user?.photoURL} alt="" /></li>
+            </>
                 :
                 // to do  user pic 
                 <> <li><Link to='/login'>Log in</Link></li>
-                    <li><img src="" alt="" /></li></>
+                </>
         }
     </>
     return (
