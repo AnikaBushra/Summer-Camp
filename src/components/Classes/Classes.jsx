@@ -11,7 +11,7 @@ const Classes = () => {
             return res.json()
         },
     })
-    console.log(data);
+
     return (
         <>
             <h3 className='text-4xl font-bold text-center mt-10'>Our Popular Classes</h3>

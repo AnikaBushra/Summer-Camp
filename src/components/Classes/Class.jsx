@@ -1,8 +1,8 @@
 
 
 const Class = ({ course }) => {
-    const { _id, image, courseName, students } = course
-    console.log(_id);
+    const { image, courseName, students } = course
+
     return (
         <div>
             <div className="card h-60 mt-6 w-96 bg-base-100 shadow-xl image-full">
