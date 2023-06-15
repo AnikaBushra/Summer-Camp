@@ -2,31 +2,49 @@
     {
         "image": "https://img.freepik.com/free-photo/learn-spanish-language-online-education-concept_53876-139716.jpg?w=740&t=st=1686635552~exp=1686636152~hmac=6d63c642b29f2c4146540f3b164bfb596187e4ccaf647c46dca1f322f18b0df9",
         "courseName": "Spanish for Beginners",
+        "name": "John Doe",
+        "seats": 40,
+        "price": 80,
         "students": 50
     },
     {
         "image": "https://img.freepik.com/free-photo/learn-french-language-online-education-concept_53876-133943.jpg?w=740&t=st=1686635603~exp=1686636203~hmac=9855a3ed249ec5a9f0a07a41c06f55614764fbc80e6ed826c31c6823cd203397",
         "courseName": "French Intermediate",
+        "name": "Jane Smith",
+        "seats": 30,
+        "price": 220,
         "students": 30
     },
     {
         "image": "https://img.freepik.com/free-photo/learn-german-language-online-education-concept_53876-133891.jpg?w=360&t=st=1686635663~exp=1686636263~hmac=033609792ba53bd759980b2bd4f0ec9fdc1fb4b8f51572f00d5872a3e572d0d1",
         "courseName": "German Advanced",
+        "name": "Michael Johnson",
+        "seats": 0,
+        "price": 130,
         "students": 20
     },
     {
         "image": "https://img.freepik.com/free-photo/learn-italian-language-online-education-concept_53876-132593.jpg?w=360&t=st=1686635716~exp=1686636316~hmac=61cb49cda6bbf8ec9fd3bc41674b952df5ae65ea6b65edebc9b52af32ca596d7",
         "courseName": "Italian for Travelers",
+        "name": "Sarah Anderson",
+        "seats": 22,
+        "price": 300,
         "students": 40
     },
     {
         "image": "https://img.freepik.com/free-photo/close-up-teacher-doing-japanese-calligraphy-called-shodo_23-2149105319.jpg?w=740&t=st=1686635756~exp=1686636356~hmac=f37ab52b0f4533ec2b04441d50484a2a3c00811a1983177b9fc061c5adc961d4",
         "courseName": "Japanese for Business",
+        "name": "Robert Davis",
+        "seats": 10,
+        "price": 200,
         "students": 25
     },
     {
         "image": "https://img.freepik.com/free-photo/close-up-pupils-doing-japanese-calligraphy-called-shodo_23-2149105367.jpg?w=740&t=st=1686635801~exp=1686636401~hmac=b7b02197a44089cf1525c56ad8e3e820ade11f7d5966fdadc724b3216e7942fc",
         "courseName": "Chinese Mandarin for Kids",
+        "seats": 0,
+        "name": "Tina Huang",
+        "price": 150,
         "students": 15
     }
 ]

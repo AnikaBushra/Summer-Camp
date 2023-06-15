@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signin from "../Pages/Signin/Signin";
 import InstructorPages from "../Pages/InstructorPages/InstructorPages";
+import AllClasses from "../Pages/AllClasses/AllClasses";
 
 export const routes = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ export const routes = createBrowserRouter([
                 path: '/instructors',
                 element: <InstructorPages></InstructorPages>,
                 loader: async () => await fetch('http://localhost:5000/instructors')
+            },
+            {
+                path: '/classes',
+                element: <AllClasses></AllClasses>,
+                loader: async () => await fetch('http://localhost:5000/allClasses')
             }
         ]
     }

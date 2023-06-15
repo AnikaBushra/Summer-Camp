@@ -5,7 +5,11 @@ import { AuthContext } from "../../Providers/Authporviders";
 
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut().then().catch(error => console.log(error))
+    }
 
     const navLink = <>
         <li><Link to='/'>Home</Link></li>
@@ -14,6 +18,7 @@ const Navbar = () => {
         {
             user ? <><li><Link to='/dashboard'>Dashboard</Link></li>
                 <li><img className="h-20" src={user?.photoURL} alt="" /></li>
+                <li className="mt-8" onClick={handleLogOut}>Log Out</li>
             </>
                 :
                 // to do  user pic 
