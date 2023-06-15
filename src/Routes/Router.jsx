@@ -6,6 +6,8 @@ import Login from "../Pages/Login/Login";
 import Signin from "../Pages/Signin/Signin";
 import InstructorPages from "../Pages/InstructorPages/InstructorPages";
 import AllClasses from "../Pages/AllClasses/AllClasses";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -34,6 +36,10 @@ export const routes = createBrowserRouter([
                 path: '/classes',
                 element: <AllClasses></AllClasses>,
                 loader: async () => await fetch('http://localhost:5000/allClasses')
+            },
+            {
+                path: '/dashboard',
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             }
         ]
     }

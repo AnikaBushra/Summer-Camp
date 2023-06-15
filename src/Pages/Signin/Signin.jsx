@@ -6,9 +6,10 @@ import { BsGoogle } from 'react-icons/bs';
 
 const Signin = () => {
     const [error, setError] = useState('')
-    const { signUpWithEmail, signInwithGoogle } = useContext(AuthContext)
+    const { signUpWithEmail, signInwithGoogle, updateUser } = useContext(AuthContext)
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        console.log(data);
         setError('')
         if (data.password < 6) {
             return setError('password must be 6 characters')
@@ -28,6 +29,10 @@ const Signin = () => {
                 .then(result => {
                     const user = result.user;
                     console.log(user);
+                    updateUser(data.name, data.photoUrl)
+                        .then(
+                            console.log('user updated')
+                        ).catch(error => console.log(error.message))
                     reset()
                 })
                 .catch(error => console.log(error.message))
