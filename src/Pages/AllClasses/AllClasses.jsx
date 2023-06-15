@@ -2,11 +2,30 @@ import { useLoaderData } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import SingleClass from "./SingleClass";
-
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/Authporviders";
+import Swal from "sweetalert2";
 
 const AllClasses = () => {
     const allClasses = useLoaderData()
     console.log(allClasses);
+    const { user } = useContext(AuthContext)
+    const handleSelect = (id) => {
+        if (!user) {
+            Swal.fire('You have to log in before select a course')
+        }
+        const singleData = allClasses.find(data => data._id === id)
+        console.log(singleData);
+        fetch(`http://localhost:5000/myClass`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(singleData)
+        })
+
+    }
+
     return (
         <div>
             <Navbar></Navbar>
@@ -16,6 +35,7 @@ const AllClasses = () => {
                     allClasses.map(singleClass => <SingleClass
                         key={singleClass._id}
                         singleClass={singleClass}
+                        handleSelect={handleSelect}
                     ></SingleClass>)
                 }
             </div>
