@@ -11,9 +11,9 @@ const Dashboard = () => {
         <div>
             <div className="drawer">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content text-center my-4">
+                <div className="drawer-content text-center my-4 mx-auto">
 
-                    <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label>
+                    <label htmlFor="my-drawer" className="btn btn-primary drawer-button ">Open drawer</label>
 
                     <SelectedClasses></SelectedClasses>
                 </div>
