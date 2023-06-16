@@ -8,6 +8,8 @@ import InstructorPages from "../Pages/InstructorPages/InstructorPages";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/StudentPayment/Payment";
+import SelectedClasses from "../components/SelectedClasses/SelectedClasses";
 
 export const routes = createBrowserRouter([
     {
@@ -37,10 +39,25 @@ export const routes = createBrowserRouter([
                 element: <AllClasses></AllClasses>,
                 loader: async () => await fetch('http://localhost:5000/allClasses')
             },
+
+
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
             {
                 path: '/dashboard',
-                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
-            }
+                element: <SelectedClasses></SelectedClasses>
+            },
+
+            {
+                path: '/dashboard/payment',
+                element: <Payment></Payment>
+            },
+
+
         ]
-    }
+    },
 ])

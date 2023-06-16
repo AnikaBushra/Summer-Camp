@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/Authporviders";
 import { AiFillDelete } from "react-icons/ai";
 import { MdPayment } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
     const { user } = useContext(AuthContext)
@@ -52,7 +53,7 @@ const SelectedClasses = () => {
                                 <td>{table.courseName}</td>
                                 <td>{table.name}</td>
                                 <td>$ {table.price}</td>
-                                <td><MdPayment className=" w-8 h-6 rounded text-green-600"></MdPayment></td>
+                                <td><Link to='/dashboard/payment'><MdPayment className=" w-8 h-6 rounded text-green-600"></MdPayment></Link></td>
                                 <td><AiFillDelete
                                     onClick={() => handleDelete(table._id)}
                                     className="text-red-500 w-6 h-8 rounded"></AiFillDelete></td>
