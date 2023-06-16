@@ -6,7 +6,7 @@ import { MdPayment } from "react-icons/md";
 
 const SelectedClasses = () => {
     const { user } = useContext(AuthContext)
-    const { data } = useQuery({
+    const { data, refetch } = useQuery({
         queryKey: ['myClass', user.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/myClass?email=${user.email}`)
@@ -14,6 +14,18 @@ const SelectedClasses = () => {
         }
 
     })
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/myClass/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                refetch()
+            })
+
+    }
+
     console.log(data)
     return (
         <div>
@@ -40,8 +52,10 @@ const SelectedClasses = () => {
                                 <td>{table.courseName}</td>
                                 <td>{table.name}</td>
                                 <td>$ {table.price}</td>
-                                <td><MdPayment className="bg-red-200 w-8 h-8 rounded"></MdPayment></td>
-                                <td><AiFillDelete className="bg-red-200 w-8 h-8 rounded"></AiFillDelete></td>
+                                <td><MdPayment className=" w-8 h-6 rounded text-green-600"></MdPayment></td>
+                                <td><AiFillDelete
+                                    onClick={() => handleDelete(table._id)}
+                                    className="text-red-500 w-6 h-8 rounded"></AiFillDelete></td>
                             </tr>)
                         }
 

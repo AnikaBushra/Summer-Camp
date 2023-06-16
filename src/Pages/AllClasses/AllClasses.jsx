@@ -25,6 +25,8 @@ const AllClasses = () => {
             },
             body: JSON.stringify(selectedData)
         })
+            .then(res => res.json())
+            .then(data => console.log(data))
 
     }
 
