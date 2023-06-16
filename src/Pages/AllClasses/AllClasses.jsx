@@ -8,20 +8,22 @@ import Swal from "sweetalert2";
 
 const AllClasses = () => {
     const allClasses = useLoaderData()
-    console.log(allClasses);
+
     const { user } = useContext(AuthContext)
     const handleSelect = (id) => {
         if (!user) {
             Swal.fire('You have to log in before select a course')
         }
         const singleData = allClasses.find(data => data._id === id)
-        console.log(singleData);
+
+        const selectedData = { image: singleData.image, name: singleData.name, price: singleData.price, seats: singleData.seats, students: singleData.students, courseName: singleData.courseName, email: user.email }
+        console.log(selectedData);
         fetch(`http://localhost:5000/myClass`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(singleData)
+            body: JSON.stringify(selectedData)
         })
 
     }
