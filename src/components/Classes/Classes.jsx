@@ -6,7 +6,7 @@ const Classes = () => {
     const { data } = useQuery({
         queryKey: ['classes'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/classes')
+            const res = await fetch('https://summer-camp-server-lac-ten.vercel.app/classes')
 
             return res.json()
         },

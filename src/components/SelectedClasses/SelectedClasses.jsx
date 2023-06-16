@@ -10,13 +10,13 @@ const SelectedClasses = () => {
     const { data, refetch } = useQuery({
         queryKey: ['myClass', user.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myClass?email=${user.email}`)
+            const res = await fetch(`https://summer-camp-server-lac-ten.vercel.app/myClass?email=${user.email}`)
             return res.json()
         }
 
     })
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/myClass/${id}`, {
+        fetch(`https://summer-camp-server-lac-ten.vercel.app/myClass/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

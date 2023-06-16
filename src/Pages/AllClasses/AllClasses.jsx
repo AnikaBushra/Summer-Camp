@@ -18,7 +18,7 @@ const AllClasses = () => {
 
         const selectedData = { image: singleData.image, name: singleData.name, price: singleData.price, seats: singleData.seats, students: singleData.students, courseName: singleData.courseName, email: user.email }
         console.log(selectedData);
-        fetch(`http://localhost:5000/myClass`, {
+        fetch(`https://summer-camp-server-lac-ten.vercel.app/myClass`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

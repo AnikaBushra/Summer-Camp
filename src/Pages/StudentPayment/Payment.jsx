@@ -15,7 +15,7 @@ const Payment = () => {
     const { data } = useQuery({
         queryKey: ['myClass', user.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myClass?email=${user.email}`)
+            const res = await fetch(`https://summer-camp-server-lac-ten.vercel.app/myClass?email=${user.email}`)
             return res.json()
         }
 

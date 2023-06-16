@@ -32,12 +32,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/instructors',
                 element: <InstructorPages></InstructorPages>,
-                loader: async () => await fetch('http://localhost:5000/instructors')
+                loader: async () => await fetch('https://summer-camp-server-lac-ten.vercel.app/instructors')
             },
             {
                 path: '/classes',
                 element: <AllClasses></AllClasses>,
-                loader: async () => await fetch('http://localhost:5000/allClasses')
+                loader: async () => await fetch('https://summer-camp-server-lac-ten.vercel.app/allClasses')
             },
 
 
