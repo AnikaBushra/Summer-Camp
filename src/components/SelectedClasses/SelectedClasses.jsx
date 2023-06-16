@@ -27,7 +27,7 @@ const SelectedClasses = () => {
 
     }
 
-    console.log(data)
+
     return (
         <div>
             <h3 className="text-3xl font-bold my-6">My Selected Classes</h3>
@@ -53,7 +53,9 @@ const SelectedClasses = () => {
                                 <td>{table.courseName}</td>
                                 <td>{table.name}</td>
                                 <td>$ {table.price}</td>
-                                <td><Link to='/dashboard/payment'><MdPayment className=" w-8 h-6 rounded text-green-600"></MdPayment></Link></td>
+                                <td><Link to={`/dashboard/payment/${table._id}`}><MdPayment
+
+                                    className=" w-8 h-6 rounded text-green-600"></MdPayment></Link></td>
                                 <td><AiFillDelete
                                     onClick={() => handleDelete(table._id)}
                                     className="text-red-500 w-6 h-8 rounded"></AiFillDelete></td>
