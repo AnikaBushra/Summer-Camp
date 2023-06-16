@@ -5,6 +5,8 @@ import { AuthContext } from "../../Providers/Authporviders";
 const CheckoutForm = ({ price }) => {
     const [cardError, setCardError] = useState('')
     const [clientSecret, setClientSecret] = useState("");
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
     const { user } = useContext(AuthContext)
     const stripe = useStripe();
     const elements = useElements();
@@ -49,9 +51,9 @@ const CheckoutForm = ({ price }) => {
         }
         else {
             setCardError('')
-            console.log('payment method', paymentMethod);
+            // console.log('payment method', paymentMethod);
         }
-
+        setProcessing(true)
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -68,8 +70,11 @@ const CheckoutForm = ({ price }) => {
         if (confirmError) {
             console.log(confirmError);
         }
+        setProcessing(false)
         console.log(paymentIntent);
-
+        if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentIntent.id);
+        }
 
     }
 
@@ -93,12 +98,15 @@ const CheckoutForm = ({ price }) => {
                         },
                     }}
                 />
-                <button className="btn btn-outline btn-primary m-4" type="submit" disabled={!stripe || !clientSecret}>
+                <button className="btn btn-outline btn-primary m-4" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
             {
                 cardError && <p className="text-red-500">{cardError}</p>
+            }
+            {
+                transactionId && <p className="text-green-700">Transaction complete with Transaction id{transactionId}</p>
             }
         </div>
     );
