@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import Classes from "../../components/Classes/Classes";
+import ExtraPart from "../../components/ExtraPart/ExtraPart";
 import Footer from "../../components/Footer/Footer";
 import Instructors from "../../components/Instructors/Instructors";
 import Navbar from "../../components/Navbar/Navbar";
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <Classes></Classes>
             <Instructors></Instructors>
+            <ExtraPart></ExtraPart>
             <Footer></Footer>
         </div>
     );
