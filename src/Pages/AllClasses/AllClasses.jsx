@@ -34,7 +34,7 @@ const AllClasses = () => {
         <div>
             <Navbar></Navbar>
             <h2 className="text-4xl font-bold text-center my-4">Our All Courses</h2>
-            <div className="grid grid-cols-3 m-10 gap-6">
+            <div className="grid grid-cols-3 m-4 gap-6">
                 {
                     allClasses.map(singleClass => <SingleClass
                         key={singleClass._id}
