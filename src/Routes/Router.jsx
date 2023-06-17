@@ -10,6 +10,8 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/StudentPayment/Payment";
 import SelectedClasses from "../components/SelectedClasses/SelectedClasses";
+import EnrolledClass from "../Pages/EnrolledClass/EnrolledClass";
+import History from "../Pages/History/History";
 
 export const routes = createBrowserRouter([
     {
@@ -56,6 +58,14 @@ export const routes = createBrowserRouter([
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>
             },
+            {
+                path: '/dashboard/enrolledClass',
+                element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path: '/dashboard/history',
+                element: <History></History>
+            }
 
 
         ]

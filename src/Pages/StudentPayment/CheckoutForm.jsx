@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/Authporviders";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price, product }) => {
     const [cardError, setCardError] = useState('')
     const [clientSecret, setClientSecret] = useState("");
     const [processing, setProcessing] = useState(false);
@@ -41,7 +41,7 @@ const CheckoutForm = ({ price }) => {
         if (card === null) {
             return
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card
         })
@@ -74,6 +74,50 @@ const CheckoutForm = ({ price }) => {
         console.log(paymentIntent);
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
+            // payment info save in the server 
+            const payment = {
+                email: user?.email, transactionId: paymentIntent.id,
+                price,
+                items: product._id,
+                courseName: product.courseName,
+
+            }
+            fetch(`https://summer-camp-server-lac-ten.vercel.app/payments`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        // sss 
+                    }
+                })
+            // paid class deleted from cart 
+            fetch(`https://summer-camp-server-lac-ten.vercel.app/myClass/${product._id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+            // paid class show in enrolled class 
+
+            fetch(`https://summer-camp-server-lac-ten.vercel.app/enrolled`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        // sss 
+                    }
+                })
         }
 
     }

@@ -1,7 +1,8 @@
 import { FaHome } from "react-icons/fa";
+import { BiHistory } from "react-icons/bi";
 import { SiGoogleclassroom, SiCoursera } from "react-icons/si";
 import { Link, Outlet } from "react-router-dom";
-import { MdPayment } from "react-icons/md";
+
 
 
 const Dashboard = () => {
@@ -23,8 +24,9 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         <li><Link to='/'><FaHome></FaHome>Home</Link></li>
                         <li><Link to='/dashboard'><SiCoursera></SiCoursera>Selected Class</Link></li>
-                        <li><Link to='/enrolledClass'><SiGoogleclassroom></SiGoogleclassroom>  My Enrolled Classes</Link></li>
-                        <li className=" text-green-600"> <Link to='/dashboard/payment'><MdPayment className=" text-green-600"></MdPayment>Payment</Link></li>
+                        <li><Link to='/dashboard/enrolledClass'><SiGoogleclassroom></SiGoogleclassroom>  My Enrolled Classes</Link></li>
+
+                        <li><Link to="/dashboard/history"><BiHistory></BiHistory>Order History</Link></li>
                     </ul>
                 </div>
             </div>
