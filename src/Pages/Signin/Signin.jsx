@@ -6,11 +6,13 @@ import { BsGoogle } from 'react-icons/bs';
 
 const Signin = () => {
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const { signUpWithEmail, signInwithGoogle, updateUser } = useContext(AuthContext)
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
         setError('')
+        setSuccess('')
         if (data.password < 6) {
             return setError('password must be 6 characters')
         }
@@ -28,6 +30,7 @@ const Signin = () => {
             signUpWithEmail(data.email, data.password)
                 .then(result => {
                     const user = result.user;
+                    setSuccess('user created successfully')
                     console.log(user);
                     updateUser(data.name, data.photoUrl)
                         .then(
@@ -35,7 +38,7 @@ const Signin = () => {
                         ).catch(error => console.log(error.message))
                     reset()
                 })
-                .catch(error => console.log(error.message))
+                .catch(error => setError(error.message))
         }
     };
 
@@ -94,7 +97,9 @@ const Signin = () => {
                                     <input type="password" {...register("confirmPassword", { required: true })} className="input input-bordered" />
                                     <p className="text-red-500">{error}</p>
                                     {errors.confirmPassword && <span>This field is required</span>}
+
                                 </div>
+                                <p className="text-green-600"> {success}</p>
                                 <div className="form-control mt-6">
                                     <input
 
@@ -102,6 +107,8 @@ const Signin = () => {
                                 </div>
 
                             </form>
+
+
                             <div className="form-control mt-6">
                                 <button
                                     onClick={handleGoogleSignin}
