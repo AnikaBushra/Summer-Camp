@@ -14,25 +14,25 @@ const JoinWithUs = () => {
                 <div className="grid grid-cols-2 gap-4 p-4 md:py-10">
                     <div className="w-2/3 font-semibold">
                         <div className="flex">
-                            <CiBullhorn className="w-20"></CiBullhorn><p className="text-2xl flex">Interactive Language Lessons</p>
+                            <CiBullhorn className="w-20 text-green-500"></CiBullhorn><p className="text-2xl flex">Interactive Language Lessons</p>
                         </div>
                         <p className="text-gray-500 ms-10">The language learning website offers a range of interactive lessons designed to cater to various proficiency levels.</p>
                     </div>
                     <div className="w-2/3 font-semibold">
                         <div className="flex">
-                            <CiBullhorn className="w-20"></CiBullhorn><p className="text-2xl flex">Diverse Language Selection</p>
+                            <CiBullhorn className="w-20 text-green-500"></CiBullhorn><p className="text-2xl flex">Diverse Language Selection</p>
                         </div>
                         <p className="text-gray-500 ms-10">With a comprehensive selection of languages to choose from, users can learn popular languages like Spanish, French, Mandarin.</p>
                     </div>
                     <div className="w-2/3 font-semibold">
                         <div className="flex">
-                            <CiBullhorn className="w-20"></CiBullhorn><p className="text-2xl flex">Personalized Learning Paths</p>
+                            <CiBullhorn className="w-20 text-green-500"></CiBullhorn><p className="text-2xl flex">Personalized Learning Paths</p>
                         </div>
                         <p className="text-gray-500 ms-10">The language learning website offers a range of interactive lessons designed to cater to various proficiency levels.</p>
                     </div>
                     <div className="w-2/3 font-semibold">
                         <div className="flex">
-                            <CiBullhorn className="w-20"></CiBullhorn><p className="text-2xl flex">Engaging Practice Activities</p>
+                            <CiBullhorn className="w-20 text-green-500"></CiBullhorn><p className="text-2xl flex">Engaging Practice Activities</p>
                         </div>
                         <p className="text-gray-500 ms-10"> To reinforce learning, the website ng practice activities, such as quizzes, games, speaking exercises.</p>
                     </div>
