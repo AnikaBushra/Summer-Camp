@@ -18,7 +18,7 @@ const RecentBlog = ({ blog }) => {
                 <img className="w-10 h-9 rounded-full my-auto" src={author_image} alt="" />
                 <div className="col-span-3">
                     <p>{author_name}</p>
-                    <p>{date}</p>
+                    <p className="text-gray-400">{date}</p>
                 </div>
             </div>
         </div>
